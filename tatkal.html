@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tatkal Booking | EasyBus</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <img src="https://cdn-icons-png.flaticon.com/512/61/61231.png" class="logo">
+    <h3>EasyBus</h3>
+</header>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="booking.html">Book Ticket</a>
+    <a href="tatkal.html">Tatkal</a>
+    <a href="login.html">Login</a>
+</nav>
+
+<div class="container page-form">
+    <div class="tatkal-visual">
+        <img src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=800" alt="Last minute travel">
+    </div>
+    <h2>Tatkal Booking</h2>
+    <p>
+        Tatkal booking is available for last-minute travel.
+        Extra charges apply.
+    </p>
+
+    <form onsubmit="tatkalBooking(event)">
+        <label for="tFrom">From Location *</label>
+        <input type="text" id="tFrom" name="tFrom" placeholder="Enter source city" required>
+
+        <label for="tTo">To Destination *</label>
+        <input type="text" id="tTo" name="tTo" placeholder="Enter destination city" required>
+
+        <label for="tDate">Travel Date *</label>
+        <input type="date" id="tDate" name="tDate" required>
+
+        <button type="submit">Confirm Tatkal Booking</button>
+    </form>
+
+    <p class="muted">
+        * Tatkal booking applies additional charges
+    </p>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

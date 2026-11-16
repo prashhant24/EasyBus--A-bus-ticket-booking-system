@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | EasyBus</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <img src="https://cdn-icons-png.flaticon.com/512/61/61231.png" class="logo">
+    <h3>EasyBus</h3>
+</header>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="booking.html">Book Ticket</a>
+    <a href="tatkal.html">Tatkal</a>
+    <a href="login.html">Login</a>
+</nav>
+
+<div class="container page-form">
+    <div class="login-visual">
+        <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?w=800" alt="Welcome to EasyBus">
+    </div>
+    <h2>User Login</h2>
+    <form onsubmit="loginUser(event)">
+        <label for="username">Username *</label>
+        <input type="text" id="username" name="username" placeholder="Enter username" required>
+
+        <label for="password">Password *</label>
+        <input type="password" id="password" name="password" placeholder="Enter password" required>
+
+        <button type="submit">Login</button>
+    </form>
+
+    <p class="muted" style="text-align:center; margin-top:10px">
+        New users are automatically registered on login
+    </p>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

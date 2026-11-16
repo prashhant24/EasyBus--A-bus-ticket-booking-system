@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Ticket | EasyBus</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <img src="https://cdn-icons-png.flaticon.com/512/61/61231.png" class="logo">
+    <h3>EasyBus</h3>
+</header>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="booking.html">Book Ticket</a>
+    <a href="tatkal.html">Tatkal</a>
+    <a href="login.html">Login</a>
+</nav>
+
+<div class="container">
+    <div class="booking-layout">
+        <div>
+    <h2>Bus Ticket Booking</h2>
+
+    <form id="bookingForm" onsubmit="bookTicket(event)" novalidate>
+        <div class="grid-2">
+            <div>
+                <label for="fullName">Full Name *</label>
+                <input type="text" id="fullName" name="fullName" placeholder="Enter your name" required>
+            </div>
+            <div>
+                <label for="email">Email *</label>
+                <input type="email" id="email" name="email" placeholder="name@example.com" required>
+            </div>
+        </div>
+
+        <div class="grid-2">
+            <div>
+                <label for="phone">Mobile Number *</label>
+                <input type="tel" id="phone" name="phone" placeholder="10-digit number" required>
+                <div class="muted">Digits only, e.g. 9876543210</div>
+            </div>
+            <div>
+                <label for="passengers">Passengers (1-5) *</label>
+                <input type="number" id="passengers" name="passengers" min="1" max="5" value="1" required>
+            </div>
+        </div>
+
+        <label for="route">Route *</label>
+        <select id="route" name="route" required>
+            <option value="">-- Select Route --</option>
+            <option value="CHN-BLR" data-from="Chennai" data-to="Bengaluru" data-fare="650">Chennai → Bengaluru (₹650/seat)</option>
+            <option value="HYD-VJA" data-from="Hyderabad" data-to="Vijayawada" data-fare="450">Hyderabad → Vijayawada (₹450/seat)</option>
+            <option value="MUM-PUN" data-from="Mumbai" data-to="Pune" data-fare="350">Mumbai → Pune (₹350/seat)</option>
+            <option value="DEL-JAI" data-from="Delhi" data-to="Jaipur" data-fare="550">Delhi → Jaipur (₹550/seat)</option>
+        </select>
+
+        <div class="grid-2">
+            <div>
+                <label for="date">Travel Date *</label>
+                <input type="date" id="date" name="date" required>
+            </div>
+            <div>
+                <label for="time">Departure Time *</label>
+                <input type="time" id="time" name="time" required>
+            </div>
+        </div>
+
+        <div class="grid-2">
+            <div>
+                <label for="discount">Discount</label>
+                <select id="discount" name="discount">
+                    <option value="0">No Discount (0%)</option>
+                    <option value="10">Student (10%)</option>
+                    <option value="20">Senior Citizen (20%)</option>
+                </select>
+            </div>
+            <div>
+                <label for="payment">Payment Method *</label>
+                <select id="payment" name="payment" required>
+                    <option value="">-- Select Payment --</option>
+                    <option value="UPI">UPI</option>
+                    <option value="Card">Debit/Credit Card</option>
+                    <option value="NetBanking">Net Banking</option>
+                    <option value="Cash">Pay at Counter</option>
+                </select>
+            </div>
+        </div>
+
+        <h4>Select Seats</h4>
+        <p class="muted" style="margin-top:-6px">Select exactly the same number of seats as passengers.</p>
+        <div class="seats" id="seats" aria-label="Seat selection grid"></div>
+
+        <div class="card" style="margin-top:14px;">
+            <h3 style="margin-bottom:6px;">Fare (Live)</h3>
+            <div class="muted" id="fareSummaryLine">Choose a route and seats to calculate fare.</div>
+            <div id="fareBreakdown" class="hide" style="margin-top:10px;">
+                <table aria-label="Fare breakdown">
+                    <tbody>
+                        <tr><th style="width:50%;">Base Fare</th><td id="baseFareCell">₹0</td></tr>
+                        <tr><th>Discount</th><td id="discountCell">- ₹0</td></tr>
+                        <tr><th>Tax (5%)</th><td id="taxCell">₹0</td></tr>
+                        <tr><th><strong>Total Payable</strong></th><td id="totalCell"><strong>₹0</strong></td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="actions">
+                <button type="button" id="toggleFareBtn" class="btn-secondary">Show Fare Breakdown</button>
+            </div>
+        </div>
+
+        <button type="submit">Confirm Booking</button>
+    </form>
+
+    <div id="receipt" class="receipt hide" aria-live="polite"></div>
+        </div>
+        <aside class="booking-visual">
+            <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=500" alt="Comfortable bus interior">
+        </aside>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
